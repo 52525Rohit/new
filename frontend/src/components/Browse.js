@@ -7,7 +7,7 @@ import image1 from "../assets/Property 1=Hero F1.png";
 import image2 from "../assets/Property 1=Hero F2.png";
 import image3 from "../assets/Property 1=Hero F3.png";
 
-import "aos/dist/aos.css";
+
 
 const Browse = () => {
   const user = useSelector((store) => store.app.user);
