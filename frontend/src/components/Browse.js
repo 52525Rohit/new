@@ -1,48 +1,51 @@
-import React, { useEffect } from 'react'
-import Header from './Header';
-import { useSelector} from "react-redux";
+import React, { useEffect } from "react";
+import Header from "./Header";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import MainContainer from './MainContainer';
-import MovieContainer from './MovieContainer';
-import useNowPlayingMovies from '../hooks/useNowPlayingMovies';
-import usePopularMovies from '../hooks/usePopularMovies';
-import useTopRatedMovies from '../hooks/useTopRatedMovies';
-import useUpcomingMovies from '../hooks/useUpcomingMovies';
-import SearchMovie from './SearchMovie';
+import image from "../assets/Property 1=Hero F0.png";
+import image1 from "../assets/Property 1=Hero F1.png";
+import image2 from "../assets/Property 1=Hero F2.png";
+import image3 from "../assets/Property 1=Hero F3.png";
+
+import "aos/dist/aos.css";
 
 const Browse = () => {
-    const user = useSelector(store => store.app.user);
-    const toggle = useSelector(store => store.movie.toggle);
-    const navigate = useNavigate();
+  const user = useSelector((store) => store.app.user);
+  const navigate = useNavigate();
 
-    // my custom hooks
-    useNowPlayingMovies();
-    usePopularMovies();
-    useTopRatedMovies();
-    useUpcomingMovies();
+  useEffect(() => {
+    if (!user) {
+      navigate("/");
+    }
+  }, []);
+  return (
+    <div>
+      <Header />
 
-    useEffect(() => {
-        if (!user) {
-            navigate("/");
-        }
-    }, []);
-    return (
-        <div >
-            <Header />
-            <div>
-                {
-                    toggle ? <SearchMovie /> : (
-                        <>
-                            <MainContainer />
-                            <MovieContainer />
-                        </>
+      <div>
+        <img
+          className="w-[98vw] space-y-32  h-[100vh] mt-4 ml-4 mr-4 mb-20 border-2 border-t-rose-600 rounded-md animate-[fed-in_5s_ease-in-out_infinite]"
+          src={image}
+          alt=""
+        />
+        <img
+          className="w-[98vw] h-[100vh] mt-4 ml-4 mb-20 border-2 border-t-rose-600 rounded-md animate-[fed-in_9s_ease-in-out_infinite]"
+          src={image1}
+          alt=""
+        />
+        <img
+          className="w-[98vw] h-[100vh] mt-4 ml-4 mb-20 border-2 border-t-blue-400 rounded-md animate-[fed-in_12s_ease-in-out_infinite]"
+          src={image2}
+          alt=""
+        />
+        <img
+          className="w-[98vw] h-[100vh] mt-4 ml-4 mb-20 rounded-md border-2 border-t-orange-500 animate-[fed-in_15s_ease-in-out_infinite]"
+          src={image3}
+          alt=""
+        />
+      </div>
+    </div>
+  );
+};
 
-                    )
-                }
-
-            </div>
-        </div>
-    )
-}
-
-export default Browse
+export default Browse;

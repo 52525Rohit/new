@@ -1,16 +1,14 @@
 import React from "react";
-import { IoIosArrowDropdown } from "react-icons/io";
 import { useSelector, useDispatch } from "react-redux";
 import { API_END_POINT } from "../utils/constant";
 import axios from "axios";
 import { setUser } from "../redux/userSlice";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import { setToggle } from "../redux/movieSlice";
+import { setToggle } from "../redux/Slice";
 
 const Header = () => {
   const user = useSelector((store) => store.app.user);
-  const toggle = useSelector((store) => store.movie.toggle);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -32,29 +30,17 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute z-10 flex w-full items-center justify-between px-6 bg-gradient-to-b from-black">
-      <img
-        className="w-56"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1198px-Netflix_2015_logo.svg.png"
-        alt="netflix-logo"
-      />
+    <div className="absolute z-10 flex w-full items-center justify-between px-6 ">
       {user && (
         <div className="flex items-center">
-          <IoIosArrowDropdown size="24px" color="white" />
-          <h1 className="text-lg font-medium text-white">{user.fullName}</h1>
           <div className="ml-4">
             <button
               onClick={logoutHandler}
-              className="bg-red-800 text-white px-4 py-2"
+              className="bg-blue-800 text-white px-4 py-2 fixed top-0 left-0 rounded-md"
             >
               Logout
             </button>
-            <button
-              onClick={toggleHandler}
-              className="bg-red-800 text-white px-4 py-2 ml-2"
-            >
-              {toggle ? "Home" : "Search Movie"}
-            </button>
+            <button onClick={toggleHandler}></button>
           </div>
         </div>
       )}
