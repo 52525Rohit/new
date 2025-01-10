@@ -1,13 +1,13 @@
 import Body from "./components/Body";
-import { Toaster } from 'react-hot-toast'; 
-import MovieDialog from "./components/MovieDialog";
- 
+import { Toaster } from "react-hot-toast";
+import UserDialog from "./components/UserDialog";
+
 function App() {
   return (
     <div>
-       <Body/>
-       <Toaster/>  
-       <MovieDialog/>
+      <Body />
+      <Toaster />
+      <UserDialog />
     </div>
   );
 }
