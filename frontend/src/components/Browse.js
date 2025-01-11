@@ -1,23 +1,12 @@
 import React, { useEffect } from "react";
 import Header from "./Header";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import image from "../assets/Property 1=Hero F0.png";
 import image1 from "../assets/Property 1=Hero F1.png";
 import image2 from "../assets/Property 1=Hero F2.png";
 import image3 from "../assets/Property 1=Hero F3.png";
 
-
-
 const Browse = () => {
-  const user = useSelector((store) => store.app.user);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!user) {
-      navigate("/");
-    }
-  }, []);
+  useEffect(() => {}, []);
   return (
     <div>
       <Header />
