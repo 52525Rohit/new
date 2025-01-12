@@ -56,7 +56,7 @@ export const Logout = async (req, res) => {
     });
 };
 
-export const Register = async (req, res) => {
+export const Signup = async (req, res) => {
   try {
     const { fullName, email, password } = req.body;
     if (!fullName || !email || !password) {
